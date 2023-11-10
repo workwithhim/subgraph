@@ -6,7 +6,7 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: Factory
-    network: mainnet:http://127.0.0.1:8020
+    network: sgb
     source:
       address: '0xDcA8EfcDe7F6Cb36904ea204bb7FCC724889b55d'
       abi: Factory
@@ -36,7 +36,7 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Pair
-    network: mainnet:http://127.0.0.1:8020
+    network: sgb
     source:
       abi: Pair
     mapping:
