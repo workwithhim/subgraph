@@ -7,8 +7,8 @@
     "codegen": "graph codegen --output-dir src/types/",
     "build": "graph build",
     "create-local": "graph create oracle/exchange --node http://127.0.0.1:8020",
-    "deploy-local": "graph deploy oracle/exchange --debug --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
-    "deploy": "graph deploy workwithhim/oracle-swap-sgb-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ --debug",
+    "deploy-local": "graph deploy oracle/exchange --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
+    "deploy": "graph deploy workwithhim/oracle-swap-sgb-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
     "deploy-staging": "graph deploy $THE_GRAPH_GITHUB_USER/$THE_GRAPH_SUBGRAPH_NAME /Uniswap --ipfs https://api.staging.thegraph.com/ipfs/ --node https://api.staging.thegraph.com/deploy/",
     "watch-local": "graph deploy graphprotocol/Uniswap2 --watch --debug --node http://127.0.0.1:8020/ --ipfs http://localhost:5001"
   },
