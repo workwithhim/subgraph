@@ -1,5 +1,5 @@
 /* eslint-disable prefer-const */
-import { log, BigInt, BigDecimal, Address, ethereum  } from '@graphprotocol/graph-ts'
+import { log, BigInt, BigDecimal, Address, ethereum } from '@graphprotocol/graph-ts'
 import { ERC20 } from '../types/Factory/ERC20'
 import { ERC20SymbolBytes } from '../types/Factory/ERC20SymbolBytes'
 import { ERC20NameBytes } from '../types/Factory/ERC20NameBytes'
@@ -60,7 +60,7 @@ export function isNullEthValue(value: string): boolean {
 export function fetchTokenSymbol(tokenAddress: Address): string {
   // static definitions overrides
   let staticDefinition = TokenDefinition.fromAddress(tokenAddress)
-  if(staticDefinition != null) {
+  if (staticDefinition != null) {
     return (staticDefinition as TokenDefinition).symbol
   }
 
@@ -88,7 +88,7 @@ export function fetchTokenSymbol(tokenAddress: Address): string {
 export function fetchTokenName(tokenAddress: Address): string {
   // static definitions overrides
   let staticDefinition = TokenDefinition.fromAddress(tokenAddress)
-  if(staticDefinition != null) {
+  if (staticDefinition != null) {
     return (staticDefinition as TokenDefinition).name
   }
 
@@ -115,29 +115,29 @@ export function fetchTokenName(tokenAddress: Address): string {
 
 export function fetchTokenTotalSupply(tokenAddress: Address): BigInt {
   let contract = ERC20.bind(tokenAddress)
-  let totalSupplyValue = null
+  let totalSupplyValue: BigInt;
   let totalSupplyResult = contract.try_totalSupply()
   if (!totalSupplyResult.reverted) {
-    totalSupplyValue = changetype<i32>(totalSupplyResult)
+    totalSupplyValue = totalSupplyResult.value
   }
-  return BigInt.fromI32(totalSupplyValue as i32)
+  return totalSupplyValue
 }
 
 export function fetchTokenDecimals(tokenAddress: Address): BigInt {
   // static definitions overrides
   let staticDefinition = TokenDefinition.fromAddress(tokenAddress)
-  if(staticDefinition != null) {
+  if (staticDefinition != null) {
     return (staticDefinition as TokenDefinition).decimals
   }
 
   let contract = ERC20.bind(tokenAddress)
   // try types uint8 for decimals
-  let decimalValue = null
+  let decimalValue: i32;
   let decimalResult = contract.try_decimals()
   if (!decimalResult.reverted) {
     decimalValue = decimalResult.value
   }
-  return BigInt.fromI32(decimalValue as i32)
+  return BigInt.fromI32(decimalValue)
 }
 
 export function createLiquidityPosition(exchange: Address, user: Address): LiquidityPosition {
