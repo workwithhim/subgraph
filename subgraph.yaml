@@ -6,7 +6,7 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: Factory
-    network: sgb
+    network: sgb:http://127.0.0.1:8020
     source:
       address: '0xDcA8EfcDe7F6Cb36904ea204bb7FCC724889b55d'
       abi: Factory
