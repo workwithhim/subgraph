@@ -36,7 +36,7 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Pair
-    network: sgb
+    network: sgb:http://127.0.0.1:8020
     source:
       abi: Pair
     mapping:
