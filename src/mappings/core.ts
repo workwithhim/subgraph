@@ -66,7 +66,8 @@ export function handleTransfer(event: Transfer): void {
   let mints = transaction.mints
   if (from.toHexString() == ADDRESS_ZERO) {
     // update total supply
-    pair.totalSupply = pair.totalSupply.plus(value)
+    if (!pair.totalSupply) pair.totalSupply = value
+    else pair.totalSupply = (pair.totalSupply).plus(value)
     pair.save()
 
     // create new mint if no mints so far or if last one is done already
