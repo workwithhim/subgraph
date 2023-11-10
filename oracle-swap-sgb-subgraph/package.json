@@ -1,0 +1,17 @@
+{
+  "name": "oracle-swap-sgb-subgraph",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ workwithhim/oracle-swap-sgb-subgraph",
+    "create-local": "graph create --node http://localhost:8020/ workwithhim/oracle-swap-sgb-subgraph",
+    "remove-local": "graph remove --node http://localhost:8020/ workwithhim/oracle-swap-sgb-subgraph",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 workwithhim/oracle-swap-sgb-subgraph",
+    "test": "graph test"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.61.0",
+    "@graphprotocol/graph-ts": "0.30.0"
+  }
+}
